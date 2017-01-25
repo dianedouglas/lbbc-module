@@ -8,8 +8,6 @@ jQuery(document).ready(function($){
       currentHref: currentHref
     };
   });
-  console.log(allLinks);
-  // $("<p>Test</p>").insertAfter('.node-blog-stories--full .content');
   
   // add plain anchor tag for each link after the main content div of the page. Give it a class for styling of "blog-stories-tag"
   for (var i = 0; i < allLinks.length; i++) {
@@ -30,7 +28,8 @@ jQuery(document).ready(function($){
   // After adding the links, add the "TAGS" header. It is inserted before the list of links because we insert it directly after the main content.
   $(tagsSectionHeaderHTML).insertAfter('.node-blog-stories--full .content');
 
-
+  // hide the original secondary topics list
+  $(".link-group.field.field-secondary-topics.field-type-taxonomy-term-reference").hide();
   // at the end clear out the variable.
   allLinks = [];
 });

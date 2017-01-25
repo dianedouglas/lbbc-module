@@ -30,6 +30,13 @@ jQuery(document).ready(function($){
 
   // hide the original secondary topics list
   $(".link-group.field.field-secondary-topics.field-type-taxonomy-term-reference").hide();
+
+  // add some space above the "More In" section to match mockup. This is styling but is included in this code since that space should be added with the moved links only
+  $('#block-views-manual-more-in-block-1').css("margin-top", "30px");
+
   // at the end clear out the variable.
   allLinks = [];
+
+  // move the comments
+  $('section.comments').prependTo('section.bottom-content');
 });

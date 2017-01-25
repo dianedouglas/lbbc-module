@@ -15,16 +15,22 @@ jQuery(document).ready(function($){
   for (var i = 0; i < allLinks.length; i++) {
     var currentLink = allLinks[i];
     var htmlToAppend = '';
-    console.log(i != (allLinks.length - 1));
-    if (i === allLinks.length - 1) {
-      //if we're on the last link, don't add a comma after the link.
+    if (i === 0) {
+      // the links will get inserted one before the next, before the next etc because we user the 'insertAfter' method to add them right after the content.
+      // so the first link should not have a comma after it.
       htmlToAppend = '<a class="blog-stories-tag" href="' + currentLink.currentHref + '">' + currentLink.currentText + '</a>';
     } else {
       htmlToAppend = '<a class="blog-stories-tag" href="' + currentLink.currentHref + '">' + currentLink.currentText + ', </a>';
     };
     $(htmlToAppend).insertAfter('.node-blog-stories--full .content');
   };
-  
+ 
+  // This HTML is taken from ADDITIONAL RELATED TOPICS to match styling. Could be changed easily to whatever by replacing this string. Added underline with inline style, could be replaced with custom class.
+  var tagsSectionHeaderHTML = '<div style="text-decoration: underline;" class="link-group__title field__label field-secondary-topics__label node-blog-stories__field-secondary-topics-label node-blog-stories__field-secondary-topics-label--full">TAGS</div>';
+  // After adding the links, add the "TAGS" header. It is inserted before the list of links because we insert it directly after the main content.
+  $(tagsSectionHeaderHTML).insertAfter('.node-blog-stories--full .content');
+
+
   // at the end clear out the variable.
   allLinks = [];
 });

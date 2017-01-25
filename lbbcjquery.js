@@ -37,6 +37,10 @@ jQuery(document).ready(function($){
   // at the end clear out the variable.
   allLinks = [];
 
+  var moreIn = $('#block-views-manual-more-in-block-1');
+  $('section.comments').prepend(moreIn);
+
   // move the comments
-  $('section.comments').prependTo('section.bottom-content');
+  // var comments = $('section.comments').clone(true, true);
+  // comments.prependTo('section.bottom-content');
 });

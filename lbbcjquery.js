@@ -28,8 +28,8 @@ jQuery(document).ready(function($){
   // After adding the links, add the "TAGS" header. It is inserted before the list of links because we insert it directly after the main content.
   $(tagsSectionHeaderHTML).insertAfter('.node-blog-stories--full .content');
 
-  // hide the original secondary topics list
-  $(".link-group.field.field-secondary-topics.field-type-taxonomy-term-reference").hide();
+  // remove the original secondary topics list
+  $(".link-group.field.field-secondary-topics.field-type-taxonomy-term-reference").remove();
 
   // add some space above the "More In" section to match mockup. This is styling but is included in this code since that space should be added with the moved links only
   $('#block-views-manual-more-in-block-1').css("margin-top", "30px");
@@ -38,6 +38,12 @@ jQuery(document).ready(function($){
   allLinks = [];
 
   // move the comments
-  var comments = jQuery('section.comments').html();
-  jQuery('.bottom-content .susy-container').prepend(comments);
+  // get jQuery object
+  var commentsjQuery = $('section.comments');
+  // get the HTML out of it
+  var comments = commentsjQuery.html();
+  // remove the original comments section
+  commentsjQuery.remove();
+  // put the HTML for the comments into bottom-content > susy-container at the beginning before the ads but after the main content.
+  $('.bottom-content .susy-container').prepend(comments);
 });

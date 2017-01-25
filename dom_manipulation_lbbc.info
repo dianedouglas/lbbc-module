@@ -1,0 +1,5 @@
+name = DOM Manipulation LBBC
+description = Use jQuery to manipulate the DOM on certain pages.
+package = Custom
+core = 7.x
+files[] = dom_manipulation_lbbc.module

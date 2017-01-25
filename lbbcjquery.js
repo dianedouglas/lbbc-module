@@ -14,7 +14,15 @@ jQuery(document).ready(function($){
   // add plain anchor tag for each link after the main content div of the page. Give it a class for styling of "blog-stories-tag"
   for (var i = 0; i < allLinks.length; i++) {
     var currentLink = allLinks[i];
-    $('<a class="blog-stories-tag" href="' + currentLink.currentHref + '">' + currentLink.currentText + '</a>').insertAfter('.node-blog-stories--full .content');
+    var htmlToAppend = '';
+    console.log(i != (allLinks.length - 1));
+    if (i === allLinks.length - 1) {
+      //if we're on the last link, don't add a comma after the link.
+      htmlToAppend = '<a class="blog-stories-tag" href="' + currentLink.currentHref + '">' + currentLink.currentText + '</a>';
+    } else {
+      htmlToAppend = '<a class="blog-stories-tag" href="' + currentLink.currentHref + '">' + currentLink.currentText + ', </a>';
+    };
+    $(htmlToAppend).insertAfter('.node-blog-stories--full .content');
   };
   
   // at the end clear out the variable.

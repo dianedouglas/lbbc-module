@@ -24,9 +24,11 @@ jQuery(document).ready(function($){
   };
  
   // This HTML is taken from ADDITIONAL RELATED TOPICS to match styling. Could be changed easily to whatever by replacing this string. Added underline with inline style, could be replaced with custom class.
-  var tagsSectionHeaderHTML = '<div style="text-decoration: underline;" class="link-group__title field__label field-secondary-topics__label node-blog-stories__field-secondary-topics-label node-blog-stories__field-secondary-topics-label--full">TAGS</div>';
-  // After adding the links, add the "TAGS" header. It is inserted before the list of links because we insert it directly after the main content.
-  $(tagsSectionHeaderHTML).insertAfter('.node-blog-stories--full .content');
+  var tagsSectionHeaderHTML = '<div style="text-decoration: underline;" class="link-group__title field__label field-secondary-topics__label node-blog-stories__field-secondary-topics-label node-blog-stories__field-secondary-topics-label--full">RELATED TOPICS</div>';
+  // After adding the links, add the "TAGS" header, if there are tags. It is inserted before the list of links because we insert it directly after the main content.
+  if (allLinks.length) {
+    $(tagsSectionHeaderHTML).insertAfter('.node-blog-stories--full .content');
+  };
 
   // remove the original secondary topics list
   $(".link-group.field.field-secondary-topics.field-type-taxonomy-term-reference").remove();
@@ -34,7 +36,7 @@ jQuery(document).ready(function($){
   // add some space above the "More In" section to match mockup. This is styling but is included in this code since that space should be added with the moved links only
   $('#block-views-manual-more-in-block-1').css("margin-top", "30px");
 
-  // at the end clear out the variable.
+  // at the end clear out the variable. Not really necessary, but this site is weird, so just in case.
   allLinks = [];
 
   // move the comments
